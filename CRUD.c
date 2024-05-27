@@ -1,34 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#include <string.h> // biblioteca string.h para usar strcmp
+#include <string.h> //  strcmp
 
-// estrutura para representar um usu·rio
+// estrutura para representar um usu√°rio
 struct User {
 	char nome [50];
 	int idade;
 };
 
-// criar novo usu·rio
+// criar novo usu√°rio
 void criar_usuario(struct User users[], int * count) {
-	printf("Digite o nome do usu·rio: ");
+	printf("Digite o nome do usu√°rio: ");
 	scanf("%s", users[*count].nome);
 	
-	printf("Digite a idade do usu·rio: ");
+	printf("Digite a idade do usu√°rio: ");
 	scanf("%d", &users[*count].idade);
 	(*count)++;
 }
 
-// funÁ„o para exibir todos os usu·rios
+// fun√ß√£o para exibir todos os usu√°rios
 void ler_usuarios(struct User users[], int count) {
-	printf("\nUsu·rios cadastrados: \n");
+	printf("\nUsu√°rios cadastrados: \n");
 	
 	for (int i = 0; i < count; i++) {
 		printf("Nome: %s, Idade: %d\n", users[i].nome, users[i].idade);
 	}
 }
 
-// funÁ„o para atualizar idade de um usu·rio
+// fun√ß√£o para atualizar idade de um usu√°rio
 void update_user(struct User users[], int count, const char*name, int new_age) {
 	for (int i = 0; i < count; i++) {
 		if (strcmp(users[i].nome, name)== 0){
@@ -37,24 +37,24 @@ void update_user(struct User users[], int count, const char*name, int new_age) {
 			return;
 		}
 	}
-	printf("Usu·rio n„o encontrado.\n");	
+	printf("Usu√°rio n√£o encontrado.\n");	
 }
 
-// funÁ„o para remover um usu·rio
+// fun√ß√£o para remover um usu√°rio
 void apagar_usuarios(struct User users[], int*count, const char*name) {
 	for (int i = 0; i < *count; i++) {
 		if (strcmp(users[i].nome, name)== 0) {
-			//substituir o usu·rio a ser excluÌdo pelo ˙ltimo usu·rio da lista
+			//substituir o usu√°rio a ser excluido pelo √∫ltimo usu√°rio da lista
 			users[i]=users[(*count)- 1];
 			(*count)--;
-			printf("Usu·rio removido com sucesso!\n");
+			printf("Usu√°rio removido com sucesso!\n");
 			return;
 		}
 	}
-	printf("Usu·rio n„o encontrado.\n");
+	printf("Usu√°rio n√£o encontrado.\n");
 }
 
-// funÁ„o para salvar os usu·rios em um arquivo
+// fun√ß√£o para salvar os usu√°rios em um arquivo
 void salvar_em_arquivo(struct User users[], int count, const char*filename) {
 	FILE*file = fopen(filename, "w");
 	if (file == NULL) {
@@ -84,13 +84,13 @@ int main () {
 	
 	do {
 		printf("\nMenu: \n");
-		printf("1. Criar usu·rio\n");
-		printf("2. Exibir usu·rio\n");
+		printf("1. Criar usu√°rio\n");
+		printf("2. Exibir usu√°rio\n");
 		printf("3. Atualizar idade\n");
-		printf("4. Remover usu·rio\n");
+		printf("4. Remover usu√°rio\n");
 		printf("5. Sair\n");
 		
-		printf(">> Escolha uma opÁ„o: ");
+		printf(">> Escolha uma op√ß√£o: ");
 		scanf("%d", &escolha);
 		
 		switch (escolha) {
@@ -101,7 +101,7 @@ int main () {
 				ler_usuarios(users, contar_usuario);
 				break;
 			case 3:
-				printf("Digite o nome do usu·rio: ");
+				printf("Digite o nome do usu√°rio: ");
 				scanf("%s", nome);
 				
 				printf("Digite a nova idade: ");
@@ -110,7 +110,7 @@ int main () {
 				update_user(users, contar_usuario, nome, nova_idade);
 				break;
 			case 4:
-				printf("Digite o nome do usu·rio a ser removido: ");
+				printf("Digite o nome do usu√°rio a ser removido: ");
 				scanf("%s", nome);
 				
 				apagar_usuarios(users, &contar_usuario, nome);
@@ -119,7 +119,7 @@ int main () {
 				salvar_em_arquivo(users, contar_usuario, filename);
 				break;
 			default: 
-				printf("OpÁ„o inv·lida.\n");		
+				printf("Op√ß√£o inv√°lida.\n");		
 		}
 	} while (escolha != 5);
 	

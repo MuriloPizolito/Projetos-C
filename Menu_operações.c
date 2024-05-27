@@ -146,7 +146,7 @@ void calculadoraSimples() {
                 break;
             case 4:
                 resultado = numero1 / numero2;
-                printf("\nResultado da divis�o: %.2f / %.2f = %.2f\n", numero1, numero2, resultado);
+                printf("\nResultado da divisão: %.2f / %.2f = %.2f\n", numero1, numero2, resultado);
                 break;
             default:
                 printf("Escolha inválida");
